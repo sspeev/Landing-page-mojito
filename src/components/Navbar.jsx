@@ -1,6 +1,10 @@
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { navLinks } from '../../constants/index.js';
+
+// Register the ScrollTrigger plugin
+gsap.registerPlugin(ScrollTrigger);
 
 const Navbar = () => {
     useGSAP(() => {
@@ -11,13 +15,13 @@ const Navbar = () => {
             }
         });
 
-        navTween.fromTo('nav', { backgroundColor: 'transperent' }, {
-            backgroundColor: '#0000050',
-            backgroundFilter: 'blur(10px)',
+        navTween.fromTo('nav', { backgroundColor: 'transparent' }, {
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            backdropFilter: 'blur(10px)',
             duration: 1,
             ease: 'power1.inOut'
         });
-    })
+    });
 
     return (
         <nav>
